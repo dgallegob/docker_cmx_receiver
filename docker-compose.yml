@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  cmx_receiver:
+    container_name: cmx_receiver
+    image: dangalle/cmx-receiver
+    environment: 
+      - SECRET=test1234
+      - VALIDATOR=2fcd65f18d9d7963b87e5516594dccdfd6f275b5 
+      - PORT=1561
+    ports:
+      - "1561:1561"
+    networks:
+      - net
+  ngrok_cmx:    
+    container_name: ngrok_cmx
+    image: wernight/ngrok
+    command: ngrok http cmx_receiver:1561
+    ports:
+      - "4040:4040"
+    depends_on:
+      - cmx_receiver
+    networks:
+      - net
+networks:
+  net:
