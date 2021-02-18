@@ -31,7 +31,7 @@ def post_data():
 
     # Verify secret
     if data['secret'] != secret:
-        print("WRONG Secret")
+        print("WRONG Secret", data['secret'])
         return("invalid secret",403)
     else:
         print("Secret OK", data['secret'])
