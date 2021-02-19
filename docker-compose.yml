@@ -5,8 +5,8 @@ services:
     container_name: cmx_receiver
     image: dangalle/cmx-receiver
     environment: 
-      - SECRET=test1234
-      - VALIDATOR=2fcd65f18d9d7963b87e5516594dccdfd6f275b5 
+      - SECRET=mysecret
+      - VALIDATOR=myvalidator 
       - PORT=1561
     ports:
       - "1561:1561"
